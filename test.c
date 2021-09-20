@@ -7,5 +7,6 @@ int main(){
     int d=2;
     char b=d+'0';
     printf("%c\n",b);
+    // new change
     return 0;
 }
