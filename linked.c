@@ -48,7 +48,7 @@ struct node *insertAtEnd(struct node *head, int data)
     new->data = data;
     new->next = NULL;
     ptr->next = new;
-    return ptr;
+    return head;
 }
 
 struct node *insertAtIndex(struct node *head, int data, int index)
@@ -64,15 +64,16 @@ struct node *insertAtIndex(struct node *head, int data, int index)
     q->data = data;
     q->next = p->next;
     p->next = q;
-    return p;
+    return head;
 }
 
 struct node *deletionAtBeginning(struct node *head)
 {
-    struct node *ptr = head;
-    head = head->next;
-    free(ptr);
-    return head;
+    struct node *p = head;
+    struct node *q = head;
+    p = p->next;
+    free(q);
+    return p;
 }
 
 struct node *deletionAtEnd(struct node *head)
@@ -102,7 +103,7 @@ struct node *deletionAtIndex(struct node *head, int index)
     }
     p->next = q->next;
     free(q);
-    return head;
+    return p;
 }
 
 int main()
